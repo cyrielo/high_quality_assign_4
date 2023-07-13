@@ -20,9 +20,17 @@ namespace ui_asg4
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public List<string> YourArray { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            YourArray = new List<string> { "Item 1", "Item 2", "Item 3" };
+
+            DataContext = this;
+
+            CustomerType.ItemsSource = YourArray;
+
         }
     }
 }
