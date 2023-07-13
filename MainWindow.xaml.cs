@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Assignmen_4
+namespace ui_asg4
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +23,6 @@ namespace Assignmen_4
         public MainWindow()
         {
             InitializeComponent();
-            
         }
     }
 }

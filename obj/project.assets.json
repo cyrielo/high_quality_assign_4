@@ -8,24 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Cyrielo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\College\\Mobile App Portfolio\\GitHub\\high_quality_assign_4\\Assignmen-4.csproj",
-      "projectName": "Assignmen-4",
-      "projectPath": "E:\\College\\Mobile App Portfolio\\GitHub\\high_quality_assign_4\\Assignmen-4.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\College\\Mobile App Portfolio\\GitHub\\high_quality_assign_4\\obj\\",
+      "projectUniqueName": "C:\\Users\\Cyrielo\\Downloads\\ui_C#asg4 (2)\\ui_asg4\\ui_asg4.csproj",
+      "projectName": "ui_asg4",
+      "projectPath": "C:\\Users\\Cyrielo\\Downloads\\ui_C#asg4 (2)\\ui_asg4\\ui_asg4.csproj",
+      "packagesPath": "C:\\Users\\Cyrielo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cyrielo\\Downloads\\ui_C#asg4 (2)\\ui_asg4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Cyrielo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
