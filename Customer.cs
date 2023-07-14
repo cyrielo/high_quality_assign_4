@@ -2,7 +2,7 @@
 
 namespace ui_asg4
 {
-    abstract class Customer : ICustomer
+    public abstract class Customer : ICustomer
     {
         private int houseAge;
         private decimal houseSize;

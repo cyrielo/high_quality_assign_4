@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ui_asg4;
 
+
 namespace ui_asg4
 {
     /// <summary>
@@ -45,8 +46,6 @@ namespace ui_asg4
         public void HandleCustomerTypeDrodown(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox) sender;
-            //ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            //SelectedCustomerType = selectedItem.ToString();
             SelectedCustomerType = (string) comboBox.SelectedItem;
         }
 
@@ -152,13 +151,41 @@ namespace ui_asg4
 
         public void DisplayContent(object sender, RoutedEventArgs e)
         {
-            FileStream fs = null;
+            DisplayContainer.Children.Clear();
+            List<Customer> customers = ReadCustomerFile();
+
+            /*            for (int i = 1; i <= 10; i++)
+                        {
+                            Label label = new Label();
+                            label.Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." + i;
+                            label.Foreground = Brushes.Black;
+                            label.Margin = new Thickness(5);
+                            label.Width = Width;
+                            label.HorizontalAlignment = HorizontalAlignment.Stretch;
+                            // Add the labels to the labelContainer
+                            DisplayContainer.Children.Add(label);
+                        }*/
+
+            foreach (Customer customer in customers)
+            {
+
+                Label label = new Label();
+                label.Content = "" + customer.ToString();
+                label.Foreground = Brushes.Black;
+                label.Margin = new Thickness(5);
+                label.Width = Width;
+                label.HorizontalAlignment = HorizontalAlignment.Stretch;
+                Console.WriteLine(customer.ToString());
+
+                // Add the labels to the existing Border container
+                DisplayContainer.Children.Add(label);
+            }
 
         }
 
-        public List<ICustomer> ReadCustomerFile()
+        public List<Customer> ReadCustomerFile()
         {
-            List<ICustomer> customers = new List<ICustomer>();
+            List<Customer> customers = new List<Customer>();
             FileStream fs = null;
             try
             {
@@ -192,7 +219,6 @@ namespace ui_asg4
                     customer.PaddockSize = paddockSize;
                     customers.Add(customer);
                 }
-
                 br.Close();
             } catch(IOException ioe)
             {
@@ -210,7 +236,7 @@ namespace ui_asg4
             FileStream fs = null;
             try
             {
-                fs = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                fs = new FileStream(FilePath, FileMode.Append, FileAccess.Write);
                 BinaryWriter bw = new BinaryWriter(fs);
                 foreach(object datum in data)
                 {
@@ -249,12 +275,14 @@ namespace ui_asg4
                 Directory.CreateDirectory(dir);
             }
             string filePath = System.IO.Path.Combine(dir, "customer_file");
-            if (File.Exists(filePath))
+            FileStream fs = null;
+            if (!File.Exists(filePath))
             {
-                File.Delete(filePath); 
+                fs = File.Create(filePath);
+                ///File.Delete(filePath); 
             }
-            FileStream fs = File.Create(filePath);
-            fs.Close();
+            //FileStream fs = File.Create(filePath);
+            fs?.Close();
             return filePath;
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ui_asg4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1200">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -27,41 +27,46 @@
             <Setter Property="Margin" Value="10,0,25,0"/>
         </Style>
     </Window.Resources>
-    <Grid Margin="8,8">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Content="Customer Type" Width="226"/>
-        <ComboBox x:Name="CustomerTypeDrodown" SelectionChanged="HandleCustomerTypeDrodown" SelectedIndex="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" FontSize="16" Grid.Column="1" Grid.Row="0" />
-        <Label Grid.Row="1" Grid.Column="0" Content="Age of the House (1:100)" Width="256" />
-        <TextBox x:Name="HouseAge" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
-        <Label Content="Size of the House (50:5000 sq.ft.)" Grid.Row="2" Grid.Column="0" Width="256" />
-        <TextBox x:Name="Housesize" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
-        <Label Content="Size of the Paddock (50:1000 sq.ft.)" Grid.Row="3" Grid.Column="0" Width="256" />
-        <TextBox x:Name="PaddockSize" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
-        <Label Content="Credit Card Number" Grid.Row="4" Grid.Column="0" Width="226" />
-        <TextBox x:Name="CardNo" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
-        <Label Content="" Grid.Row="5" Grid.Column="0" Width="226" />
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="8,8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Customer Type" Width="226"/>
+            <ComboBox x:Name="CustomerTypeDrodown" SelectionChanged="HandleCustomerTypeDrodown" SelectedIndex="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" FontSize="16" Grid.Column="1" Grid.Row="0" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Age of the House (1:100)" Width="256" />
+            <TextBox x:Name="HouseAge" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+            <Label Content="Size of the House (50:5000 sq.ft.)" Grid.Row="2" Grid.Column="0" Width="256" />
+            <TextBox x:Name="Housesize" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+            <Label Content="Size of the Paddock (50:1000 sq.ft.)" Grid.Row="3" Grid.Column="0" Width="256" />
+            <TextBox x:Name="PaddockSize" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+            <Label Content="Credit Card Number" Grid.Row="4" Grid.Column="0" Width="226" />
+            <TextBox x:Name="CardNo" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+            <Label Content="" Grid.Row="5" Grid.Column="0" Width="226" />
 
-        <Button x:Name="SubmitButton" Click="HandleSubmit" Grid.Row="6" Grid.Column="0" Content="Submit"/>
-        <Button x:Name="MyDisplay" Click="DisplayContent" Grid.Row="6" Grid.Column="1" Content="Display"/>
-        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Height="200" Width="700"
-            Margin="20,30" HorizontalAlignment="Left">
-        </Border>
-        <ScrollBar Grid.Column="0" HorizontalAlignment="Left" Margin="25,102,0,0" Grid.Row="7" VerticalAlignment="Top" RenderTransformOrigin="0.362,-0.245"/>
-    </Grid>
+            <Button x:Name="SubmitButton" Click="HandleSubmit" Grid.Row="6" Grid.Column="0" Content="Submit"/>
+            <Button x:Name="MyDisplay" Click="DisplayContent" Grid.Row="6" Grid.Column="1" Content="Display"/>
+            <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" Height="Auto" MinHeight="150" Width="Auto" MinWidth="700"
+                Margin="20,30" HorizontalAlignment="Left">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                    <StackPanel Width="Auto" x:Name="DisplayContainer" />
+                </ScrollViewer>
+            </Border>
+
+        </Grid>
+        </ScrollViewer>
 </Window>
