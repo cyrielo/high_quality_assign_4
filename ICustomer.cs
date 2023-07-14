@@ -9,7 +9,6 @@ namespace ui_asg4
         int HouseAge { get; set; }
         decimal HouseSize { get; set; }
         decimal PaddockSize { get; set; }
-        string CustomerName { get; set; }
         string CreditCardNumber { get; set; }
         CustomerTaskDelegate CustomerTasks { get; set; }
         void CreateDesign();

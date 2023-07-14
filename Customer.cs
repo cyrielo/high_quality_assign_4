@@ -8,13 +8,11 @@ namespace ui_asg4
         private decimal houseSize;
         private decimal paddockSize;
         private string creditCardNumber;
-        private string customerName;
         private CustomerTaskDelegate customerTasks = null;
 
         public int HouseAge { get => houseAge; set => houseAge = value; }
         public decimal HouseSize { get => houseSize; set => houseSize = value; }
         public decimal PaddockSize { get => paddockSize; set => paddockSize = value; }
-        public string CustomerName { get => customerName; set => customerName = value; }
         public string CreditCardNumber
         {
             get => CreditCardHelper.ObscureCreditCardNumber(creditCardNumber);
