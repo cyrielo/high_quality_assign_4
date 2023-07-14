@@ -112,6 +112,36 @@ namespace ui_asg4
             }
         }
 
+
+        private void HouseAgeGotFocus(object sender, RoutedEventArgs e)
+        {
+            HouseAge.Text = string.Empty;
+            HouseAge.Foreground = Brushes.Black;
+            HouseAge.Background = Brushes.White;
+
+        }
+
+        private void HouseSizeGotFocus(object sender, RoutedEventArgs e)
+        {
+            Housesize.Text = string.Empty;
+            Housesize.Foreground = Brushes.Black;
+            Housesize.Background = Brushes.White;
+        }
+
+        private void PaddockGotFocus(object sender, RoutedEventArgs e)
+        {
+            PaddockSize.Text = string.Empty;
+            PaddockSize.Foreground = Brushes.Black;
+            PaddockSize.Background = Brushes.White;
+        }
+
+        private void CreditCardGotFocus(object sender, RoutedEventArgs e)
+        {
+            CardNo.Text = string.Empty;
+            CardNo.Foreground = Brushes.Black;
+            CardNo.Background = Brushes.White;
+        }
+
         public void ClearError()
         {
             HouseAge.Background = Brushes.White;
@@ -285,5 +315,7 @@ namespace ui_asg4
             fs?.Close();
             return filePath;
         }
+
+        
     }
 }
