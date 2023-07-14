@@ -4,7 +4,7 @@ using System.Collections;
 namespace ui_asg4
 {
     public delegate void CustomerTaskDelegate();
-    internal interface ICustomer : IComparable<ICustomer>
+    public internal interface ICustomer : IComparable<ICustomer>
     {
         int HouseAge { get; set; }
         decimal HouseSize { get; set; }

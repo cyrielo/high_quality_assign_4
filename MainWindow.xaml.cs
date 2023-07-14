@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,7 +36,8 @@ namespace ui_asg4
 
         public void Run()
         {
-            CustomerType = new List<string> { "Home owner", "Business owner", "Farmer" };
+            CustomerType = new List<string> 
+            { "Home owner", "Business owner", "Farmer" };
             DataContext = this;
             CustomerTypeDrodown.ItemsSource = CustomerType;
             FilePath = SetupFile();
@@ -153,18 +155,41 @@ namespace ui_asg4
 
         }
 
-        public ArrayList ReadFile()
+        public List<ICustomer> ReadCustomerFile()
         {
-            ArrayList content = new ArrayList();
+            List<ICustomer> customers = new List<ICustomer>();
             FileStream fs = null;
             try
             {
                 fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
 
-                while(fs.Position != fs.Length)
+                while (fs.Position != fs.Length)
                 {
-                    
+                    string customerType = br.ReadString();
+                    int houseAge = br.ReadInt32();
+                    decimal houseSize = br.ReadDecimal();
+                    decimal paddockSize = br.ReadDecimal();
+                    string CardNo = br.ReadString();
+                    Customer customer = null;
+
+                    switch (customerType)
+                    {
+                        case "Home owner":
+                            customer = new HomeOwner();
+                            break;
+                        case "Business owner":
+                            customer = new BusinessOwner();
+                            break;
+                        case "Farmer":
+                            customer = new Farmer();
+                            break;
+                    }
+                    customer.HouseAge = houseAge;
+                    customer.CreditCardNumber = CardNo;
+                    customer.HouseSize = houseSize;
+                    customer.PaddockSize = paddockSize;
+                    customers.Add(customer);
                 }
 
                 br.Close();
@@ -176,7 +201,7 @@ namespace ui_asg4
             {
                 fs?.Close();
             }
-            return content;
+            return customers;
         }
 
         public void SaveData(ArrayList data)
@@ -203,7 +228,6 @@ namespace ui_asg4
                         bw.Write((decimal) datum);
                     }
                 }
-                // write new line
                 bw.Close();
             }
             catch (IOException ioe)
