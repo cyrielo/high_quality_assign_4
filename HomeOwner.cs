@@ -10,9 +10,5 @@ namespace ui_asg4
         {
             Console.WriteLine("Creating a design of sun rooms ... Done");
         }
-        public override string ToString()
-        {
-            return string.Format("Home owner's name is {0}, {1}", base.CustomerName, base.ToString()); ;
-        }
     }
 }

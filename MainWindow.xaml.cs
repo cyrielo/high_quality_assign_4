@@ -25,7 +25,8 @@ namespace ui_asg4
     public partial class MainWindow : Window
     {
 
-        public List<string> CustomerType { get; set; }
+        public List<string> CustomerType = new List<string>
+            { "Home owner", "Business owner", "Farmer" };
         public string FilePath { get; set; }
         public string SelectedCustomerType { get; set; }
         public MainWindow()
@@ -36,8 +37,6 @@ namespace ui_asg4
 
         public void Run()
         {
-            CustomerType = new List<string> 
-            { "Home owner", "Business owner", "Farmer" };
             DataContext = this;
             CustomerTypeDrodown.ItemsSource = CustomerType;
             FilePath = SetupFile();
@@ -46,8 +45,9 @@ namespace ui_asg4
         public void HandleCustomerTypeDrodown(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox) sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            SelectedCustomerType = selectedItem.ToString();
+            //ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            //SelectedCustomerType = selectedItem.ToString();
+            SelectedCustomerType = (string) comboBox.SelectedItem;
         }
 
         public List<TextBoxError> HandleValidation(out ArrayList parsedData)
@@ -128,6 +128,7 @@ namespace ui_asg4
 
         public void ClearForm()
         {
+            CustomerTypeDrodown.SelectedIndex = 0;
             HouseAge.Text = "";
             CardNo.Text = "";
             Housesize.Text = "";

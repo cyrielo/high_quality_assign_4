@@ -10,10 +10,5 @@ namespace ui_asg4
         {
             Console.WriteLine("Creating the design of the customer lobbies... Done");
         }
-
-        public override string ToString()
-        {
-            return string.Format("Business owner's name is {0}, {1}", base.CustomerName, base.ToString()); ;
-        }
     }
 }
