@@ -49,13 +49,13 @@
             <Label Grid.Column="0" Content="Customer Type" Width="226"/>
             <ComboBox x:Name="CustomerTypeDrodown" SelectionChanged="HandleCustomerTypeDrodown" SelectedIndex="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" FontSize="16" Grid.Column="1" Grid.Row="0" />
             <Label Grid.Row="1" Grid.Column="0" Content="Age of the House (1:100)" Width="256" />
-            <TextBox x:Name="HouseAge" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+            <TextBox x:Name="HouseAge" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" GotFocus="HouseAgeGotFocus"/>
             <Label Content="Size of the House (50:5000 sq.ft.)" Grid.Row="2" Grid.Column="0" Width="256" />
-            <TextBox x:Name="Housesize" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"/>
+            <TextBox x:Name="Housesize" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" GotFocus="HouseSizeGotFocus"/>
             <Label Content="Size of the Paddock (50:1000 sq.ft.)" Grid.Row="3" Grid.Column="0" Width="256" />
-            <TextBox x:Name="PaddockSize" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"/>
+            <TextBox x:Name="PaddockSize" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" GotFocus="PaddockGotFocus" />
             <Label Content="Credit Card Number" Grid.Row="4" Grid.Column="0" Width="226" />
-            <TextBox x:Name="CardNo" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap"/>
+            <TextBox x:Name="CardNo" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" GotFocus="CreditCardGotFocus"/>
             <Label Content="" Grid.Row="5" Grid.Column="0" Width="226" />
 
             <Button x:Name="SubmitButton" Click="HandleSubmit" Grid.Row="6" Grid.Column="0" Content="Submit"/>
