@@ -26,8 +26,14 @@ namespace ui_asg4
     public partial class MainWindow : Window
     {
 
+        int houseAge = 0;
+        decimal houseSize = 0;
+        decimal paddockSize = 0;
+        string creditCardNo = string.Empty;
+
         public List<string> CustomerType = new List<string>
             { "Home owner", "Business owner", "Farmer" };
+
         public string FilePath { get; set; }
         public string SelectedCustomerType { get; set; }
         public MainWindow()
@@ -56,7 +62,8 @@ namespace ui_asg4
 
             if (!int.TryParse(HouseAge.Text, out int houseAge))
             {
-                TextBoxError error = new TextBoxError() {
+                TextBoxError error = new TextBoxError()
+                {
                     Message = "Invalid house age",
                     TextBox = HouseAge
                 };
@@ -105,11 +112,131 @@ namespace ui_asg4
 
         public void DisplayErrors(List<TextBoxError> errors)
         {
-            foreach (TextBoxError error in errors)
+            
+        
+
+            string ageString = HouseAge.Text;
+            if (ageString == string.Empty)
             {
-                error.TextBox.Background = Brushes.Red;
-                error.TextBox.Foreground = Brushes.White;
+               
+                HouseAge.Background = Brushes.Red;
             }
+            if (int.TryParse(ageString, out houseAge) && (houseAge >= 1) && (houseAge <= 100))
+            {
+                HouseAge.Foreground = Brushes.Black;
+            }
+            else
+            {
+                HouseAge.Foreground = Brushes.Red;
+              
+            }
+
+            string sizeString = Housesize.Text;
+            if (sizeString == string.Empty)
+            {
+                
+                Housesize.Background = Brushes.Red;
+            }
+            if (decimal.TryParse(sizeString, out houseSize) && (houseSize >= 50) && (houseSize <= 5000))
+            {
+                Housesize.Foreground = Brushes.Black;
+            }
+            else
+            {
+                Housesize.Foreground = Brushes.Red;
+                
+            }
+
+            string padlockString = PaddockSize.Text;
+            if (padlockString == string.Empty)
+            {
+               
+                PaddockSize.Background = Brushes.Red;
+            }
+            if (decimal.TryParse(padlockString, out paddockSize) && (paddockSize >= 50) && (paddockSize <= 1000))
+            {
+                PaddockSize.Foreground = Brushes.Black;
+            }
+            else
+            {
+                PaddockSize.Foreground = Brushes.Red;
+                
+            }
+
+            if (CardNo.Text.Length == 0)
+            {
+                CardNo.Background = Brushes.Red;
+                
+            }
+            else
+            {
+                creditCardNo = CardNo.Text;
+            }
+
+            char[] passArray = CardNo.Text.ToCharArray();
+            for (int i = 0; i < passArray.Length; i++)
+            {
+                if (!char.IsDigit(passArray[i]))
+                {
+                    CardNo.Foreground = Brushes.Red;
+
+                }
+                else
+                {
+                    CardNo.Foreground = Brushes.Black;
+                }
+            }
+
+            if (passArray.Length != 16)
+            {
+                CardNo.Foreground = Brushes.Red;
+
+            }
+            else
+            {
+                CardNo.Foreground = Brushes.Black;
+
+            }
+
+        }
+
+        //public void DisplayErrors(List<TextBoxError> errors)
+        //{
+        //    foreach (TextBoxError error in errors)
+        //    {
+        //        error.TextBox.Background = Brushes.Red;
+        //        error.TextBox.Foreground = Brushes.White;
+        //    }
+        //}
+
+
+        private void HouseAgeGotFocus(object sender, RoutedEventArgs e)
+        {
+            HouseAge.Text = string.Empty;
+            HouseAge.Foreground = Brushes.Black;
+            HouseAge.Background = Brushes.White;
+
+        }
+
+        private void HouseSizeGotFocus(object sender, RoutedEventArgs e)
+        {
+            Housesize.Text = string.Empty;
+            Housesize.Foreground = Brushes.Black;
+            Housesize.Background = Brushes.White;
+        }
+
+        private void PaddockGotFocus(object sender, RoutedEventArgs e)
+        {
+            PaddockSize.Text = string.Empty;
+            PaddockSize.Foreground = Brushes.Black;
+            PaddockSize.Background = Brushes.White;
+        }
+
+        private void CreditCardGotFocus(object sender, RoutedEventArgs e)
+        {
+            CardNo.Text = string.Empty;
+            CardNo.Foreground = Brushes.Black;
+            CardNo.Background = Brushes.White;
         }
 
         public void ClearError()
@@ -133,6 +260,8 @@ namespace ui_asg4
             Housesize.Text = "";
             PaddockSize.Text = "";
         }
+
+
 
         public void HandleSubmit(object sender, RoutedEventArgs e)
         {
@@ -285,5 +414,7 @@ namespace ui_asg4
             fs?.Close();
             return filePath;
         }
+
+        
     }
 }
